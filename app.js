@@ -48,21 +48,31 @@
 //     console.log(`Server is listening on port ${ port }`);
 //   })
 
+// memanggil module express
 const express = require('express')
+
+// memanggil module express-ejs-layouts
 const expressLayouts = require('express-ejs-layouts')
+
+// memanggil module morgan
 const morgan = require('morgan')
 const app = express()
 const port = 3000
 
 // informasi menggunakan EJS
 app.use(expressLayouts);
+
+// meng-set layout  dan view engine
 app.set('layout', './layout/layout')
 app.set('view engine', 'ejs')
 
+// menggunakan morgan dev untuk menampilkan info log
 app.use(morgan('dev'))
 
+// menggunakan express static untuk memberi izin terhadap folder public
 app.use(express.static('public'))
 
+// menampilkan waktu 
 app.use((req, res, next) => {
   console.log('Time:', Date.now())
   next()
