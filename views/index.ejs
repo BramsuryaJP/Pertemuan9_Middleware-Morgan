@@ -1,0 +1,15 @@
+  <h1>Hello World</h1>
+  <p>Welcome to my page <%= name %></p>
+  <h1> Contact List : </h1>
+  <ul>
+    <!--melakukan perulangan jika kondisi tidak ada object dalam array-->
+    <% if (cont.length < 1) { %>
+      <p>Contact's List is empty</p>
+       <% } else { %>
+       <!-- menunampilkan contact list -->
+      <% for( let i = 0; i < cont.length; i++ ) { %>
+        <li>Name : <%= cont[i].name %></li>
+        <li>Email : <%= cont[i].email %></li>
+      <% } %>
+    <% } %>
+  </ul>
